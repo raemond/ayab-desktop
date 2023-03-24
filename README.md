@@ -106,7 +106,7 @@ Next download the git repository:
 Create a virtual enviroment in the cloned repository.
 
     cd ayab-desktop
-    conda create --name venv -c conda-forge python=3.6.* pip
+    conda create --name venv -c conda-forge "python=3.6.*" pip
     conda activate venv
 
 Then install the remaining prerequisites with:
@@ -118,6 +118,10 @@ Then install the remaining prerequisites with:
 To solve pip3 SSL:TLSV1_ALERT_PROTOCOL_VERSION problem:
 
     curl https://bootstrap.pypa.io/get-pip.py | python3
+
+To solve error regarding uninstalling 'certifi':
+
+    pip install requests --ignore-installed certifi
 
 To be able to work on GUI elements and translation files, the Qt Dev tools are needed also:
 
