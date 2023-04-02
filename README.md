@@ -75,7 +75,7 @@ Now start ayab with
 
 ### macOS
 
-You need Python 3.5.3 and PyQt5.
+You need Python 3.9.0 and PyQt5.
 For Python I would recommend `pyenv`
 You can install it using Homebrew
 
@@ -85,7 +85,7 @@ You can install it using Homebrew
 You also need the Xcode command line tools installed (xcode-select --install).
 Once these have been installed, you need to get the Python version installed
 
-    env PYTHON_CONFIGURE_OPTS="--enable-framework" CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install 3.5.3
+    env PYTHON_CONFIGURE_OPTS="--enable-framework" CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install 3.9.0
 
 To install the development version you can checkout the git repository
 
@@ -94,7 +94,7 @@ To install the development version you can checkout the git repository
 Create a virtual enviroment in the cloned repository
 
     cd ayab-desktop
-    pyenv virtualenv 3.5.3 venv
+    pyenv virtualenv 3.9.0 venv
     pyenv activate venv
 
 (If the pyenv commands don't work out, you probably have to add
