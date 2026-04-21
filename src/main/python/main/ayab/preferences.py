@@ -70,7 +70,7 @@ def str2bool(qvariant: str | bool) -> bool:
 
 
 PreferencesDictBoolKeys: TypeAlias = Literal[
-    "default_infinite_repeat",
+    "default_infinite_vertical_repeat",
     "default_knit_side_image",
     "quiet_mode",
     "disable_hardware_beep",
@@ -88,7 +88,7 @@ PreferencesDict = TypedDict(
     {
         "machine": type[Machine],
         "default_knitting_mode": type[Mode],
-        "default_infinite_repeat": type[bool],
+        "default_infinite_vertical_repeat": type[bool],
         "default_alignment": type[Alignment],
         "default_knit_side_image": type[bool],
         "aspect_ratio": type[AspectRatio],
@@ -118,7 +118,7 @@ class Preferences(SignalSender):
     variables: PreferencesDict = {
         "machine": Machine,
         "default_knitting_mode": Mode,
-        "default_infinite_repeat": bool,
+        "default_infinite_vertical_repeat": bool,
         "default_alignment": Alignment,
         "default_knit_side_image": bool,
         "aspect_ratio": AspectRatio,
