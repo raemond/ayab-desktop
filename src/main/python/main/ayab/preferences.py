@@ -135,7 +135,25 @@ class Preferences(SignalSender):
         self.languages = Language(self.parent.app_context)
         self.settings: QSettings = QSettings()
         self.settings.setFallbacksEnabled(False)
+        self.__migrate_infinite_repeat_setting()
         self.refresh()
+
+    def __migrate_infinite_repeat_setting(self) -> None:
+        old_key = "default_infinite_repeat"
+        new_key = "default_infinite_vertical_repeat"
+        keys = self.settings.allKeys()
+
+        if old_key in keys and new_key not in keys:
+            try:
+                migrated_value = str2bool(
+                    cast(str | bool, self.settings.value(old_key))
+                )
+            except ValueError:
+                migrated_value = False
+            self.settings.setValue(new_key, migrated_value)
+
+        if old_key in keys:
+            self.settings.remove(old_key)
 
     def refresh(self) -> None:
         for var in self.variables.keys():
